@@ -4,6 +4,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 SRC_URI = " \
   file://init.sh \
+  file://machine.conf \
   "
 
 inherit allarch
@@ -29,6 +30,11 @@ do_install() {
   install -m 0755 -d ${WORKDIR}/mnt/rw
   install -m 0755 -d ${WORKDIR}/newroot
 }
+
+do_deploy() {
+  install -m 0644 ${WORKDIR}/machine.conf ${DEPLOY_DIR_IMAGE}/machine.conf
+}
+addtask deploy after do_compile
 
 FILES_${PN} += " \
   /init \
