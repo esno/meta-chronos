@@ -10,6 +10,10 @@ BBLAYERS = " \
   "
 
 BBLAYERS += " \
+  ${TOPDIR}/../meta-openembedded/meta-oe \
+  "
+
+BBLAYERS += " \
   ${TOPDIR}/../meta-chronos \
   "
 
